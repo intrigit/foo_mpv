@@ -1,5 +1,5 @@
 # foo_mpv
-mpv video player UI element for foobar2000.
+My fork of mpv video player UI element for foobar2000. Compiled with the newest foobar2000 2.0 sdk.
 
 ### Features
 - For playback of local video files.
