@@ -50,7 +50,7 @@ void menu_node_popup::get_child(unsigned p_index,
                                 uie::menu_node_ptr& p_out) const {
   p_out = m_items[p_index].get_ptr();
 }
-unsigned menu_node_popup::get_children_count() const { return m_items.size(); }
+t_size menu_node_popup::get_children_count() const { return m_items.size(); }
 bool menu_node_popup::get_description(pfc::string_base& p_out) const {
   if (m_description.is_empty()) {
     return false;

@@ -34,8 +34,8 @@ jobs:
           .\vcpkg\vcpkg.exe integrate install
           $Revision = (git rev-list --count HEAD)
           $Revision
-          (Get-Content .\src\main.cpp) -replace '#define VERSION_NO.*$', ('#define VERSION_NO "99.99.99 alpha ' + $Revision + '"') | Out-File .\src\main.cpp
-          MSBuild.exe /t:Build /p:Configuration=Release64 .\src\foo_mpv.sln
+          (Get-Content .\src\main.cpp) -replace '#define VERSION_NO.*$', ('#define VERSION_NO "0.6.11 ci-alpha ' + $Revision + '"') | Out-File .\src\main.cpp
+          MSBuild.exe /t:Build /p:Configuration=Release64 /p:Platform=x64 .\src\foo_mpv.sln
           mkdir .\out
           mkdir .\out\mpv
           mv .\src\Release\foo_mpv\foo_mpv.dll .\out\foo_mpv.dll
