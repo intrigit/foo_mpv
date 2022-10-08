@@ -32,7 +32,7 @@ jobs:
           mkdir .\out
           mkdir .\out\mpv
           $rss = Invoke-WebRequest -UseBasicParsing -Uri 'https://sourceforge.net/projects/mpv-player-windows/rss?path=/libmpv'
-          $rss -match '<link>[^<]*mpv-dev-i686[^<]*\/download<\/link>'
+          $rss -match '<link>[^<]*mpv-dev-x86_64[^<]*\/download<\/link>'
           $Matches[0] -replace '</?link>',''
           $UserAgent = 'Wget/1.0'
           Invoke-WebRequest -Uri ($Matches[0] -replace '</?link>','') -Outfile .\mpv.7z -UserAgent $UserAgent
@@ -48,6 +48,7 @@ jobs:
           mv .\src\Release\foo_mpv\foo_mpv.dll .\out\foo_mpv.dll
           mv .\src\Release\foo_mpv\foo_mpv.pdb .\out\foo_mpv.pdb
           mv .\src\lua\osc.lua .\out\mpv\osc.lua
+          dir .\out\ -Recurse
           Compress-Archive -Path '.\out\mpv','.\out\foo_mpv.dll' -DestinationPath .\release.zip
           mv .\release.zip .\foo_mpv.fb2k-component
           Compress-Archive -Path '.\out\foo_mpv.pdb' -DestinationPath .\pdb.zip
