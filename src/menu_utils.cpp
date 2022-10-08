@@ -46,7 +46,7 @@ menu_node_popup::menu_node_popup(pfc::string8 text, std::vector<ui_extension::me
     : m_text(text), m_description(), m_items(children){};
 menu_node_popup::menu_node_popup(pfc::string8 text, pfc::string8 description, std::vector<ui_extension::menu_node_ptr> children)
     : m_text(text), m_description(description), m_items(children){};
-void menu_node_popup::get_child(unsigned p_index,
+void menu_node_popup::get_child(t_size p_index,
                                 uie::menu_node_ptr& p_out) const {
   p_out = m_items[p_index].get_ptr();
 }
